@@ -35,7 +35,7 @@ class BERTScore(Metric):
         num_layers: the layer of representation to use.
         verbose: turn on intermediate status update
         idf: use idf weighting, can also be a precomputed idf_dict
-        device: on which the contextual embedding model will be allocated on.
+        embedding_device: on which the contextual embedding model will be allocated on.
         num_threads: number of threads
         batch_size: bert score processing batch size
         lang: language of the sentences
@@ -74,7 +74,7 @@ class BERTScore(Metric):
         num_layers: int = None,
         verbose: bool = False,
         idf: bool = False,
-        device: Optional[str] = None,
+        embedding_device: Optional[str] = None,
         batch_size: int = 64,
         num_threads: int = 4,
         all_layers: bool = False,
@@ -97,7 +97,7 @@ class BERTScore(Metric):
         self.all_layers = all_layers
         self.num_threads = num_threads
         self.batch_size = batch_size
-        self.embedding_device = device
+        self.embedding_device = embedding_device
         self.idf = idf
         self.verbose = verbose
         self.num_layers = num_layers
